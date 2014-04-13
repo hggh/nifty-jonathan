@@ -13,14 +13,24 @@ requirements
  * JSON
 
 
-configureable
+feature
 --------------------
+ * configureable via YAML file
+ * reload button for Nagios/Icinga status (right panel)
+ * display custom Nagios/Icinga service group
+ * display all service problems (regex for filter it)
+ * display all host problems
 
-This dashboard is configureable via a yaml file.
+
+TODO
+--------------------
+ * reload of Graphite graphs
+ * for every Graphite graph tabs (day/week/month) vertical tabs
+ * reload of complete page
 
 screenshots
 ----------------
- * ![Screenshot](https://github.com/hggh/nifty-jonathan/blob/master/screenshots/screen_01.png?raw=true)
+ ![Screenshot](https://github.com/hggh/nifty-jonathan/blob/master/screenshots/screen_01.png?raw=true)
 
 
 contact?
