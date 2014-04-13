@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <title>Internetstores GmbH - Server Status</title>
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+
+<div class="row">
+  <div class="col-md-8">
+    <ul id="myTab" class="nav nav-tabs">
+<% @tabs.each_with_index do |t,i| %>
+      <li class="<%= 'active' if i == 0 %>"><a href="#<%= t.name %>" data-toggle="tab"><%= t.title %></a></li>
+<% end %>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+<% @tabs.each_with_index do |t,i| %>
+       <div class="tab-pane<%= ' active' if i == 0 %>" id="<%= t.name %>">
+<% t.graphs.each do |g| %>
+        <h3><%= g.title %></h3>
+        <img src="<%= g.url %>" />
+<% end %>
+       </div>
+<% end %>
+    </div> <!-- tab content -->
+  </div>
+
+  <div id="nagios" class="col-md-4">
+  <%= partial :nagios, :locals => { nagios_service_group: @nagios_service_group, nagios_problems: @nagios_problems } %>
+  </div>
+</div>
+
+
+</div>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

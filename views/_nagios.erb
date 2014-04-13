@@ -1,0 +1,38 @@
+<div style="float:right;padding-right:100px;padding-top:20px;"><span id="nagios-refresh" class="glyphicon glyphicon-refresh"> </span></div>
+<h3>Nagios Status</h3>
+<% nagios_service_group["status"]["service_status"].each do |service| %>
+<div class="row">
+  <div class="col-md-8">
+    <p><%= service["host_name"] %> - <%= service["service_description"] %></p>
+  </div>
+  <div class="col-md-2">
+    <span class="label label-<%= status2bootstrap(service["status"]) %>"><%= service["status"] %></span>
+  </div>  
+</div>
+<% end %>
+<h2> Nagios Service Problems</h2>
+<% nagios_problems["status"]["service_status"].each do |service| %>
+<div class="row">
+  <div class="col-md-8">
+    <p><%= service["host_name"] %> - <%= service["service_description"] %></p>
+  </div>
+  <div class="col-md-2">
+    <span class="label label-<%= status2bootstrap(service["status"]) %>"><%= service["status"] %></span>
+  </div>  
+</div>
+<% end %>
+
+<h2> Nagios Host Problems</h2>
+<% nagios_problems["status"]["host_status"].each do |service| %>
+<div class="row">
+  <div class="col-md-8">
+    <p><%= service["host_name"] %></p>
+  </div>
+  <div class="col-md-2">
+    <span class="label label-<%= status2bootstrap(service["status"]) %>"><%= service["status"] %></span>
+  </div>  
+</div>
+<% end %>
+
+<br/>
+<small>last update: <%= Time.now %></small>
