@@ -1,0 +1,30 @@
+---
+nagios:
+  username: nagios-viewer
+  password: password
+  servicegroup:
+    url: "http://icinga/cgi-bin/icinga/status.cgi?servicegroup=foobar&style=detail&scroll=0&jsonoutput"
+  problems:
+    url: http://icinga/cgi-bin/icinga/status.cgi?allproblems&jsonoutput
+    service_filter: "(Debian-Updates|NTP)"
+tabs:
+  -
+    name: nginx
+    title: NGINX
+    graphs:
+      -
+        title: www*. NGINX requests/sec
+        url: "http://graphite/render/?width=841&height=478&"
+      -
+        title: inweb NGINX requests/sec
+        url: "http://graphite/?width=841&height=478"
+  -
+    name: varnish
+    title: Varnish
+    graphs:
+      -
+        title: "Server 1"
+        url: "http://"
+      -
+        title: "Server 2"
+        url: "http://"
