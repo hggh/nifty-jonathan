@@ -13,6 +13,16 @@ requirements
  * JSON
 
 
+configureable
+--------------------
+
+This dashboard is configureable via a yaml file.
+
+screenshots
+----------------
+ * ![Screenshot](https://github.com/hggh/nifty-jonathan/blob/master/screenshots/screen_01.png?raw=true)
+
+
 contact?
 --------------
 
