@@ -21,10 +21,21 @@ function reloadNagiosWidget() {
   request.done(function(data) {
     $("#nagios").html(data);
   });
+  // reload every 10 sec
   setTimeout(reloadNagiosWidget, 10000);
+}
+
+function reloadImages() {
+  var now = new Date();
+  $('img').each(function(index) {
+    var url = $(this).attr('src').replace(/&\d+$/, '');
+    $(this).attr('src', url + '&' + now.getTime());
+  });
+  // reload every 120 sec
+  setTimeout(reloadImages, 120000);
 }
 
 $(document).ready(function() {
   reloadNagiosWidget();
+  reloadImages();
 });
-
