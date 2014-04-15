@@ -13,3 +13,18 @@ $(document).on('click', '#nagios-refresh', function (e) {
   });
 });
 
+function reloadNagiosWidget() {
+  var request = $.ajax({
+    url: "/ajax/nagios",
+    type: "GET"
+  });
+  request.done(function(data) {
+    $("#nagios").html(data);
+  });
+  setTimeout(reloadNagiosWidget, 10000);
+}
+
+$(document).ready(function() {
+  reloadNagiosWidget();
+});
+
