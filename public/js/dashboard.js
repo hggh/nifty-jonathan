@@ -35,7 +35,17 @@ function reloadImages() {
   setTimeout(reloadImages, 120000);
 }
 
+function rotateTabs(){
+    var tabs = $('.nav-tabs > li');
+    var active = tabs.filter('.active');
+    var next = active.next('li').length? active.next('li').find('a') : tabs.filter(':first-child').find('a');
+    next.tab('show')
+}
+
+
 $(document).ready(function() {
   reloadNagiosWidget();
   reloadImages();
+
+  setInterval(rotateTabs, 7000)
 });
