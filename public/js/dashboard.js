@@ -1,3 +1,4 @@
+var rotateGraphiteTabs = true;
 $('#myTab a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
@@ -11,6 +12,15 @@ $(document).on('click', '#nagios-refresh', function (e) {
   request.done(function(data) {
     $("#nagios").html(data);
   });
+});
+
+$(document).on('click', '#toggleRotateGraphiteTabs', function (e) {
+  if (rotateGraphiteTabs == true) {
+    rotateGraphiteTabs = false;
+  }
+  else {
+    rotateGraphiteTabs = true;
+  }
 });
 
 function reloadNagiosWidget() {
@@ -36,10 +46,12 @@ function reloadImages() {
 }
 
 function rotateTabs(){
-    var tabs = $('.nav-tabs > li');
-    var active = tabs.filter('.active');
-    var next = active.next('li').length? active.next('li').find('a') : tabs.filter(':first-child').find('a');
-    next.tab('show')
+    if (rotateGraphiteTabs == true) {
+      var tabs = $('.nav-tabs > li');
+      var active = tabs.filter('.active');
+      var next = active.next('li').length? active.next('li').find('a') : tabs.filter(':first-child').find('a');
+      next.tab('show')
+    }
 }
 
 
