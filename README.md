@@ -15,7 +15,7 @@ requirements
 
 feature
 --------------------
- * configureable via YAML file
+ * configurable via YAML file
  * reload button for Nagios/Icinga status (right panel)
  * display custom Nagios/Icinga service group
  * display all service problems (regex for filter it)
